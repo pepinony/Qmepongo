@@ -8,5 +8,5 @@ public class Atuento {
 
     public Atuendo(){};
 
-    public void agregarPrendas(){}
+    //public void agregarPrenda(Color color, Material mat, Tipo tipo){}
 }

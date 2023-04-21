@@ -1,30 +1,42 @@
 package main.java.practica;
 
 public class Prenda{
-    public Categoria cat;
     public Material mat;
     public Tipo tipo;
     public Color color;
     
 
-    public Prenda(){};
+    public newPrenda(Material mat, Tipo tipo, Color color){
+        this.mat = mat;
+        this.tipo = tipo;
+        this.color = color;
+        this.todoCoincide();
+    };
 
     private void todoCoincide(){
-        if((cat == tipo.categoria()) && (tipo != void.class) && (color != void.class)){}
-        else{throw new RuntimeException("Error con los tipos de datos");}
+        if((mat == null) || (tipo == null) || (color == null)){throw new RuntimeException("Error con la carga de datos");}
     }
+    public Categoria categoria() {return this.tipo.categoria();}
 }
 
 public enum Material{}
 public enum Categoria{
     parteSuperior, parteInferior, calzado, accesorios
     };
-public enum Tipo{
-    remera(Categoria.parteSuperior), pantalon(Categoria.parteInferior), pollera(Categoria.parteInferior), camisa_manga_corta(Categoria.parteSuperior), blusa(Categoria.parteSuperior);
-    private Tipo cat;
-
+public class Tipo{
+    private Categoria cat;
+    
     private Tipo(Categoria cat){this.cat = cat;}
-    public Categoria categoria() { return this.cat;}
+
+    public Categoria categoria() {return this.cat;}
+
+    //Const
+    public final Tipo remera = new Tipo(parteSuperior);
+    public final Tipo pantalon = new Tipo(parteInferior);
+    public final Tipo pollera = new Tipo(parteInferior);
+    public final Tipo camisa_manga_corta = new Tipo(parteSuperior);
+    public final Tipo blusa = new Tipo(parteSuperior);
+
     };
 
 public class Color{

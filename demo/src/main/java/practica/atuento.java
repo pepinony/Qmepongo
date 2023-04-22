@@ -1,10 +1,10 @@
 package main.java.practica;
 
 public class Atuento {
-    public Prenda sup;
-    public Prenda inf;
-    public Prenda calzado;
-    public Prenda accesorios;
+    private Prenda superior;
+    private Prenda inferior;
+    private Prenda calzado;
+    private Set<Prenda> accesorios;
 
     public Atuendo(){};
 

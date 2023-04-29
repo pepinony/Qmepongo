@@ -13,11 +13,14 @@ public class Atuento {
         this.accesorios = accesorios;
     };
 
-    //public void agregarPrenda(Color color, Material mat, Tipo tipo){}
+    //public void agregarPrenda(Prenda){}
 }
 
-class Uniforme extends Atuendo{
-   
+public class Uniforme{
+    private Prenda superior;
+    private Prenda inferior;
+    private Prenda calzado;
+    
     public newUniforme(Prenda superior, Prenda inferior, Prenda calzado){
         this.superior = superior;
         this.inferior = inferior;

@@ -17,41 +17,21 @@ public class Borrador{
         }
 
     public void setTipo(TipoPrenda tipoPrenda){
-        this.set(tipoPrenda, new setTipo());
+        this.noNulo(tipoPrenda);
+        this.tipoPrenda=tipoPrenda;
     }
     public void setFormalidad(Formalidad formalidad){
-        this.set(formalidad, new setFormalidad());
+        this.noNulo(formalidad);
+        this.formalidad=formalidad;
     }
     public void setMaterial(Material mat){
-        this.set(mat, new setMaterial());
+        this.noNulo(mat);
+        this.mat=mat;
     }
     public void setColor(Color color, Optional<Color> colorSecundario){
-        this.set(color, new setColor());
+        this.noNulo(colorSecundario);
+        this.color=color;
         if(colorSecundario != null){this.colorSecundario = colorSecundario;}
     }
-    private void set(Object atributo, setter type){if(atributo != null){type.call(this, atributo);}else{throw new RuntimeException("El dato no puede ser nulo");}}
+    private void noNulo(Object atributo){if(atributo == null){throw new RuntimeException("El dato no puede ser nulo");}}
 }
-
-interface setter{
-    public void call(Object parametro, Object atributo);
-}
-
-class setTipo implements setter{
-    public void call(Object parametro, Object atributo){
-        parametro.tipoPrenda = atributo;
-    }
-}
-class setColor implements setter{
-    public void call(Object parametro, Object atributo){
-        parametro.color = atributo;
-    }
-}
-class setMaterial implements setter{
-    public void call(Object parametro, Object atributo){
-        parametro.mat = atributo;
-    }
-}
-class setFormalidad implements setter{
-    public void call(Object parametro, Object atributo){
-        parametro.formalidad = atributo;
-}}

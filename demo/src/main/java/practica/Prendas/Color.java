@@ -1,4 +1,4 @@
-package main.java.practica;
+package practica.Prendas;
 
 public class Color{
     private int red;
@@ -7,7 +7,7 @@ public class Color{
 
     public Color(){};
 
-    public newColor(int r, int g, int b){
+    public Color(int r, int g, int b){
         if (this.nValido(b) && this.nValido(g) && this.nValido(r)){
             this.asignar(r, g, b);
         }else{
@@ -15,9 +15,9 @@ public class Color{
         }
         
     }
-    private bool nValido(int n) {return (255<n)&&(n>0);}
+    private boolean nValido(int n) {return (255<n)&&(n>0);}
     private void asignar(int r, int g, int b){this.red=r;this.green=g;this.blue=b;}
-    public String queColorPrincipal() {return Integer.toHexString(this.r) + Integer.toHexString(this.g) + Integer.toHexString(this.b);}
+    public String queColorPrincipal() {return Integer.toHexString(this.red) + Integer.toHexString(this.green) + Integer.toHexString(this.blue);}
 }
 
 /**Rever

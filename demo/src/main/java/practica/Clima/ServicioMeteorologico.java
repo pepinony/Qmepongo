@@ -10,8 +10,9 @@ public class ServicioMeteorologico{
 
     private Clima condicionesClimaticas;
 
-    public ServicioMeteorologico(ProveedorClima proveedor) {
+    public ServicioMeteorologico(ProveedorClima proveedor, String ciudad) {
         this.proveedor = proveedor;
+        this.ciudad = ciudad;
       }
 
     public void conocerClima(){ //Hacer q lo haga una vez cada 6hs 

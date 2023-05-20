@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 import com.google.common.collect.Lists;
 //import javax.xml.transform.stream.StreamResult;
 
-public abstract class MotorSugerencias{
+public class MotorSugerencias{
     private Stream<Criterio> criterios;
     //Correegir herencia
    public List<Sugerencia> generarSugerencias(Usuario usuario){

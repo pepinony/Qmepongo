@@ -1,5 +1,6 @@
 package practica.Prendas;
 import practica.Enums.*;
+import practica.Clima.*;
 import java.util.Optional;
 
 public class Prenda{
@@ -25,5 +26,5 @@ public class Prenda{
     public Material getMaterial(){return this.mat;}
     public Color getColor(){return this.color;}
     public Color getColorSecundario(){ return this.colorSecundario;}
-    public boolean isAptoTemperatura(Object temp){return true;}
+    public boolean isAptoTemperatura(Clima clima){return true;} //hacerlo bien
 }

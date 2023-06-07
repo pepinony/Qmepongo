@@ -1,5 +1,5 @@
 package practica.Sugerencia;
-import practica.Usuario;
+import practica.Usuario.*;
 import practica.Prendas.Prenda;
 import practica.Clima.*;
 

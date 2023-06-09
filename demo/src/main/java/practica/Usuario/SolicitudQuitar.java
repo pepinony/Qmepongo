@@ -12,7 +12,10 @@ public class SolicitudQuitar implements Solicitud {
         this.prenda = prenda;
     }
 
-    public void proponer(){
-        this.guardarropa.proponerQuitar(prenda);
+    public void deshacer(){
+        this.guardarropa.agregarPrenda(prenda);
+    }
+    public void efectuar(){
+        this.guardarropa.sacarPrenda(prenda);
     }
 }

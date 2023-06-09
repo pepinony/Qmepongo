@@ -12,11 +12,15 @@ public class SolicitudAgregar implements Solicitud {
         this.prenda = prenda;
     }
 
-    public void proponer(){
-        this.guardarropa.proponerAgregar(prenda);
+    public void deshacer(){
+        this.guardarropa.sacarPrenda(prenda);
+    }
+    public void efectuar(){
+        this.guardarropa.agregarPrenda(prenda);
     }
 }
 
 interface Solicitud {
-    public void proponer();
+    public void efectuar();
+    public void deshacer();
 }

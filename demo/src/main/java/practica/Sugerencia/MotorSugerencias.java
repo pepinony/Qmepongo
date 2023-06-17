@@ -11,6 +11,9 @@ import com.google.common.collect.Lists;
 public class MotorSugerencias{
     private Stream<Criterio> criterios;
     //Correegir herencia
+    
+    public MotorSugerencias(){}
+
    public List<Sugerencia> generarSugerencias(Usuario usuario){
         List<Prenda> prendasSuperior = this.prendasValidas(usuario).filter(p -> p.isSuperior()).toList();
         List<Prenda> prendasInferior = this.prendasValidas(usuario).filter(p -> p.isInferior()).toList();
@@ -25,6 +28,12 @@ public class MotorSugerencias{
         return Stream.concat(posibles.get(0), posibles.get(1)).distinct();
     }
 
+    public Sugerencia sugerirUno(Usuario usuario){
+        List<Sugerencia> sugerencias = this.generarSugerencias(usuario);
+        Random rand = new Random();
+        Sugerencia randomSugerencia = sugerencias.get(rand.nextInt(sugerencias.size()));
+        return randomSugerencia;
+    }
 }
 
 

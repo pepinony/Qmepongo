@@ -8,7 +8,9 @@ public class ProveedorDeMotor{
         return ProveedorDeMotor.INSTANCE;
     }
 
-
+    public ProveedorDeMotor(MotorSugerencias motorSugerencias){
+        this.motor = motorSugerencias;
+    }
     public MotorSugerencias getMotor(){
         return motor;
     }

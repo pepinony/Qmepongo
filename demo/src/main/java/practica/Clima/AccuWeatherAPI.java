@@ -1,5 +1,6 @@
 package practica.Clima;
 import java.util.*;
+import practica.Enums.*;
 
 public final class AccuWeatherAPI {
 
@@ -18,6 +19,12 @@ public final class AccuWeatherAPI {
 				put("Unit", "F");
 				put("UnitType", 18);
 			}});
+		}});
+	}
+	public final Map<String, Alertas> getAlertas(){
+		return (new HashMap<String,Alertas>(){{
+			put("CurrentAlert", Alertas.Tormenta);
+			put("PastAlert", Alertas.Granizo);
 		}});
 	}
 }

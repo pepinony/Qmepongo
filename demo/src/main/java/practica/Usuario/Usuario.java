@@ -2,13 +2,19 @@ package practica.Usuario;
 import java.util.*;
 import practica.Sugerencia.*;
 import practica.Prendas.*;
+import practica.Clima.ProveedorAccuWeather;
+import practica.Clima.ServicioMeteorologico;
+import practica.Enums.*;
+import practica.Observers.*;
 
 public class Usuario {
     private int edad;
+    private Sugerencia sugerenciaDiaria;
+    private List<ObserverAlerta> observers;
     private List<Prenda> prendas;
     private List<Guardarropa> guardarropas;
-    //private List<Guardarropa> guardarropasCompartido;
     private ProveedorDeMotor proveedor;
+
 
     public Usuario(int edad, ProveedorDeMotor proveedor){
         this.edad = edad;
@@ -26,21 +32,19 @@ public class Usuario {
     public void recibirGuardarropa(Guardarropa guardarropa){
         this.guardarropas.add(guardarropa);
     }
+    public void sugerenciaDiaria(Optional<ProveedorDeMotor> proveedorNuevo){
+       if(proveedorNuevo != null){this.proveedor=proveedorNuevo.get();};
+       Sugerencia sugDiaria = this.getMotor().sugerirUno(this);
+       this.sugerenciaDiaria = sugDiaria;
+    }
+    public void reaccionarAlerta(Alertas alerta){
+        observers.forEach((o)->o.onAlert(alerta, this));
+    }
+    public Optional<ProveedorDeMotor> motorSegunAlerta(Alertas alerta){return Optional.of(new ProveedorDeMotor(new MotorSugerencias()));}
+
 
     public List<Prenda> getPrendas(){return this.prendas;}
     public int getEdad(){return edad;}
+    public Sugerencia getSugerenciaDiaria(){return sugerenciaDiaria;}
     public MotorSugerencias getMotor(){ return this.proveedor.getMotor();}
 }
-
-/* 
-     public void crearGuardarropa(List<Prenda> prendas, String nombre){
-        this.guardarropas.add(new Guardarropa(prendas, nombre));
-    }
-    public void compartirGuardarropa(Guardarropa guardarropa, Usuario usuario){
-        usuario.recibirGuardarropa(guardarropa);
-    }
-    public void recibirGuardarropa(Guardarropa guardarropa){
-        this.guardarropasCompartido.add(guardarropa);
-    }
-
- */

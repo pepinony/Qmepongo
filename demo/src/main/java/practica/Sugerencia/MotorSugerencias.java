@@ -12,7 +12,7 @@ public class MotorSugerencias{
     private Stream<Criterio> criterios;
     //Correegir herencia
     
-    public MotorSugerencias(){}
+   public MotorSugerencias(){}
 
    public List<Sugerencia> generarSugerencias(Usuario usuario){
         List<Prenda> prendasSuperior = this.prendasValidas(usuario).filter(p -> p.isSuperior()).toList();

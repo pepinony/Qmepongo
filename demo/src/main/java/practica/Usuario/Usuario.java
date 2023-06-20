@@ -40,6 +40,8 @@ public class Usuario {
     public void reaccionarAlerta(Alertas alerta){
         observers.forEach((o)->o.onAlert(alerta, this));
     }
+    public void agregarObserverAlerta(ObserverAlerta observer){ observers.add(observer);}
+    public void sacarObserverAlerta(ObserverAlerta observer){ observers.remove(observer);}
     public Optional<ProveedorDeMotor> motorSegunAlerta(Alertas alerta){return Optional.of(new ProveedorDeMotor(new MotorSugerencias()));}
 
 
